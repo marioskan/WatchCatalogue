@@ -1,30 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using WatchCatalogue.Core.Interfaces;
+using WatchCatalogue.Core.ViewModels;
+using WatchCatalogue.Infrastructure.Services;
 
 namespace WatchCatalogue.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        IDisplayService _display;
+        public HomeController()
         {
-            return View();
+            _display = new DisplayService();
         }
 
-        public ActionResult About()
+        public async Task<ActionResult> Index()
         {
-            ViewBag.Message = "Your application description page.";
+            var fullDisplayModel = await _display.DisplayModels();
+            var displayvm = new DisplayAllViewModel(fullDisplayModel);
 
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return View(displayvm);
         }
     }
 }

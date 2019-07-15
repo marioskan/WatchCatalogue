@@ -1,11 +1,28 @@
-﻿<h1>Movies</h1>
+﻿@model WatchCatalogue.Core.ViewModels.DisplayAllViewModel
 
-<table>
+<h1>View All</h1>
+
+<table>    
     <tr>
-        <th>Movie Name</th>
-        <th>Genre</th>
-        <th>Channel</th>
-        <th>Subscription Service</th>
-        <th>Price</th>
+        <th>Service</th>
+        <th>Channels</th>
+        <th>Movies</th>
+
     </tr>
+       @foreach (var service in Model.Services)
+       {
+           foreach (var channel in service.Channels)
+           {
+               foreach (var movie in channel.Movies)
+               {
+                <tr>
+
+                    <td>@service.ServiceName</td>
+                    <td>@channel.ChannelName</td>
+                    <td>@movie.MovieName</td>
+                </tr>
+
+               }
+           }
+       }
 </table>
