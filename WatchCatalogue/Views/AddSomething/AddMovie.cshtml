@@ -1,0 +1,49 @@
+﻿@model WatchCatalogue.ViewModels.AllViewModel
+
+<h1>Add Movie</h1>
+
+@using (Html.BeginForm("AddMoviePost", "AddSomething", FormMethod.Post))
+{
+    <form>
+        <table>
+            <tr>
+                <td>Movie Name:</td>
+            </tr>
+            <tr>
+                <td>@Html.TextBoxFor(ss=>ss.MovieName)</td>
+            </tr>
+            <tr>
+                <td>Movie Rating:</td>
+            </tr>            
+            <tr>
+                <td>@Html.TextBoxFor(ss => ss.Rating)/10</td>
+            </tr>
+            <tr>
+                <td>Genre:</td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.EnumDropDownListFor(ss=>ss.Genres)
+                </td>
+            </tr>
+            <tr>
+                <td>Channel Name:</td>
+            </tr>
+            <tr>
+                <td>
+                    <select name="select">
+                        @foreach(var channel in Model.ChannelVM)
+                        {
+                            <option value="@channel.ChannelId">@channel.ChannelName</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Add" />
+                </td>
+            </tr>
+        </table>
+    </form>
+}

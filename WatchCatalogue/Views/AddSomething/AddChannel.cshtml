@@ -1,0 +1,40 @@
+﻿@model WatchCatalogue.ViewModels.ChannelViewModel
+
+@{
+    ViewBag.Title = "Add Channel";
+}
+
+@using (Html.BeginForm("AddChannelPost", "AddSomething", FormMethod.Post))
+{
+    <form>
+        <table>
+            <tr>
+                <td>
+                    <div class="col-25">Name</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.TextBoxFor(ss => ss.Name)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <select name="select">
+                        @foreach(var subscription in Model.SubscriptionServiceVM)
+                        {
+                            <option value="@subscription.ID">@subscription.Name</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="btn">
+                        <input type="submit" value="Add" />
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
+}

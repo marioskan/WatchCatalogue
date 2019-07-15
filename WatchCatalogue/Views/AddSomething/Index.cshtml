@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Select something you want add";
+}
+
+<table>
+    <tr>
+        <td>
+            <input class="button" type="button" value="Add Subscription Service" onclick="window.location='@Url.Action("AddSubscriptionService", "AddSomething")'" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input class="button" type="button" value="Add Channel" onclick="window.location='@Url.Action("AddChannel", "AddSomething")'" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input class="button" type="button" value="Add Movie" onclick="window.location='@Url.Action("AddMovie", "AddSomething")'" />
+        </td>
+    </tr>
+</table>
+
+    
+<style>
+    .button {
+        background-color: darkred;
+        color: white;
+        display: inline-block;
+        border-radius: 12px
+    }
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        
+        text-align: center;
+        padding: 8px;
+    }
+
+    
+</style>
+
+

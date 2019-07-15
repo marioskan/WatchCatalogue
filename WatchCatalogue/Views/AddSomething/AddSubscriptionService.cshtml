@@ -1,0 +1,59 @@
+﻿@model WatchCatalogue.Core.Entities.SubscriptionService
+
+@{
+    ViewBag.Title = "Add Subscription Service";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<div class="container">
+@using (Html.BeginForm("AddSubscriptionServicePost", "AddSomething", FormMethod.Post))
+{
+    <form>
+        <table>
+            <tr>
+                <td>
+                    <div class="col-25">Name</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.TextBoxFor(ss=>ss.Name)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="col-25">Price</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.TextBoxFor(ss => ss.Price)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="btn">
+                        <input type="submit" value="Add" />
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
+}
+</div>
+
+<style>
+    .btn {
+        border: none;
+        padding: 16px 32px;
+        text-align: center;
+        font-size: 16px;
+        margin: 4px 2px;
+        opacity: 0.6;
+        transition: 0.3s;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .btn:hover {opacity: 1}
+</style>
