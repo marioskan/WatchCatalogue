@@ -57,6 +57,10 @@
     <Compile Include="Migrations\201907120941179_Initial-Migration.Designer.cs">
       <DependentUpon>201907120941179_Initial-Migration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907161244455_amount.cs" />
+    <Compile Include="Migrations\201907161244455_amount.Designer.cs">
+      <DependentUpon>201907161244455_amount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ChannelService.cs" />
@@ -77,6 +81,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201907120941179_Initial-Migration.resx">
       <DependentUpon>201907120941179_Initial-Migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907161244455_amount.resx">
+      <DependentUpon>201907161244455_amount.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

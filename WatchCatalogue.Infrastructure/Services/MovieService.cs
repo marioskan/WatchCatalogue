@@ -20,7 +20,7 @@ namespace WatchCatalogue.Infrastructure.Services
             {
                 Movie movie = new Movie();
                 movie.Name = allvm.MovieName;
-                movie.Rating = allvm.Rating;
+                movie.Amount = allvm.Amount;
                 movie.Genre = allvm.Genres;
                 movie.ChannelID = allvm.ChannelID;
                 db.Movies.Add(movie);

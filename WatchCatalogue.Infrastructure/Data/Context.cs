@@ -36,6 +36,8 @@ namespace WatchCatalogue.Infrastructure.Data
                     .WithRequired(m => m.Channel)
                     .HasForeignKey(m => m.ChannelID)
                     .WillCascadeOnDelete(true);
+
+                
             }
         }
     

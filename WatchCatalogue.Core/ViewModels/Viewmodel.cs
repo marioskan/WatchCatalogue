@@ -42,7 +42,7 @@ namespace WatchCatalogue.ViewModels
 
     public class AllViewModel
     {
-        public int Rating { get; set; }
+        public int Amount { get; set; }
         public int ChannelID { get; set; }
         public string MovieName { get; set; }
         public Genre Genres { get; set; }

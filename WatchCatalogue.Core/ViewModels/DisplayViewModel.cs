@@ -65,14 +65,15 @@ namespace WatchCatalogue.Core.ViewModels
     public class MovieViewModel
     {
         public string MovieName { get; set; }
-
+        public int Amount { get; set; }
         public MovieViewModel()
         {
             //this.MovieName = MovieName;
         }
-        public MovieViewModel(string movieName)
+        public MovieViewModel(string movieName,int amount)
         {
             MovieName = movieName;
+            Amount = amount;
         }
     }
 

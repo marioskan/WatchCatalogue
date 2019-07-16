@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using WatchCatalogue.Core.Entities;
 
 namespace WatchCatalogue.Models
 {
@@ -79,6 +80,13 @@ namespace WatchCatalogue.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        public List<Movie> MovieList { get; set; }
+
+        public RegisterViewModel()
+        {
+            MovieList = new List<Movie>();
+        }
     }
 
     public class ResetPasswordViewModel

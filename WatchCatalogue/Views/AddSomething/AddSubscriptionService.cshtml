@@ -10,7 +10,7 @@
 @using (Html.BeginForm("AddSubscriptionServicePost", "AddSomething", FormMethod.Post))
 {
     <form>
-        <table>
+        <table id="data">
             <tr>
                 <td>
                     <div class="col-25">Name</div>
@@ -44,16 +44,27 @@
 </div>
 
 <style>
-    .btn {
-        border: none;
-        padding: 16px 32px;
-        text-align: center;
-        font-size: 16px;
-        margin: 4px 2px;
-        opacity: 0.6;
-        transition: 0.3s;
-        text-decoration: none;
-        cursor: pointer;
+    #data {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        font-size: 12px;
+        white-space:nowrap;
+        width:100%;
     }
-    .btn:hover {opacity: 1}
+
+   
+    #data tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    #data tr:hover {
+        background-color: #ddd;
+        width:50%;
+    }
+
+    #data td, #data th {
+        border: 1px solid #ddd;
+        padding: 8px;
+        width:1%;
+    }
 </style>
