@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,13 +12,18 @@ namespace WatchCatalogue.Core.ViewModels
     {
         public List<ServiceViewModel> Services { get; set; }
 
-        public DisplayAllViewModel(List<SubscriptionService> services)
+        public DisplayAllViewModel()
         {
             Services = new List<ServiceViewModel>();
-            foreach (var service in services)
-            {
-                Services.Add(new ServiceViewModel(service.Name, service.Channels));
-            }
+        }
+
+        public DisplayAllViewModel(List<SubscriptionService> services) :this()
+        {
+            //foreach (var service in services)
+            //{
+            //    Services.Add(new ServiceViewModel(service.Name, service.Channels));
+            //}
+            Mapper.Map(services,Services);
         }
     }
     public class ServiceViewModel
@@ -25,14 +31,16 @@ namespace WatchCatalogue.Core.ViewModels
         public List<ChannelViewModel> Channels { get; set; }
         public string ServiceName { get; set; }
 
-        public ServiceViewModel(string serviceName, List<Channel> channels)
+        public ServiceViewModel()
         {
+            Channels = new List<ChannelViewModel>();
+        }
+        public ServiceViewModel(string serviceName, List<Channel> channels) : this()
+        {
+            //here
             ServiceName = serviceName;
             Channels = new List<ChannelViewModel>();
-            foreach (var channel in channels)
-            {
-                Channels.Add(new ChannelViewModel(channel.Name, channel.Movies));
-            }
+            Mapper.Map(channels, Channels);
         }
     }
 
@@ -41,15 +49,16 @@ namespace WatchCatalogue.Core.ViewModels
         public List<MovieViewModel> Movies { get; set; }
         public string ChannelName { get; set; }
 
+        public ChannelViewModel()
+        {
+            Movies = new List<MovieViewModel>();
+        }
+
         public ChannelViewModel(string channelName, List<Movie> movies)
         {
             Movies = new List<MovieViewModel>();
             ChannelName = channelName;
-
-            foreach (var movie in movies)
-            {
-                Movies.Add(new MovieViewModel(movie.Name));
-            }
+            Mapper.Map(movies, Movies);
         }
     }
 
@@ -57,6 +66,10 @@ namespace WatchCatalogue.Core.ViewModels
     {
         public string MovieName { get; set; }
 
+        public MovieViewModel()
+        {
+            //this.MovieName = MovieName;
+        }
         public MovieViewModel(string movieName)
         {
             MovieName = movieName;

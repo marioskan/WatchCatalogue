@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,22 +14,16 @@ namespace WatchCatalogue.ViewModels
         public string ImgGuid { get; set; }
         public List<SubscriptionServiceViewModel> SubscriptionServiceVM { get; set; }
 
+
         public ChannelViewModel()
         {
             SubscriptionServiceVM = new List<SubscriptionServiceViewModel>();
         }
 
+
         public ChannelViewModel(List<SubscriptionService> subscriptionServices) : this()
         {
-            //SubscriptionServiceVM = new List<SubscriptionServiceViewModel>();
-            subscriptionServices.ForEach(ss =>{
-                this.SubscriptionServiceVM.Add(
-                    new SubscriptionServiceViewModel()
-                    {
-                        ID = ss.ID,
-                        Name= ss.Name
-                    });
-            });
+            Mapper.Map(subscriptionServices, SubscriptionServiceVM);
         }
 
     }
@@ -60,14 +55,7 @@ namespace WatchCatalogue.ViewModels
 
         public AllViewModel(List<Channel> channelList) : this()
         {
-            channelList.ForEach(ss => {
-                this.ChannelVM.Add(
-                    new ChannelIdViewModel()
-                    {
-                        ChannelId = ss.ID,
-                        ChannelName = ss.Name
-                    });
-            });
+            Mapper.Map(channelList, ChannelVM);
         }
     }
 
