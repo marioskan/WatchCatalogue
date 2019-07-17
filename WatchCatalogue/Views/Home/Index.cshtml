@@ -2,8 +2,6 @@
 
 <h1>View All</h1>
 
-@using (Html.BeginForm("UserRent", "AddSomething", FormMethod.Post))
-{
         <div style="overflow-x:auto;">
             <table id="data">
                 <tr>
@@ -31,7 +29,11 @@
                                 @if (Roles.IsUserInRole("Admin") || Roles.IsUserInRole("User"))
                             {
                                     <td>
-                                <input type="submit" value="Buy" />
+                                        @using (Html.BeginForm("UserRent", "Home", FormMethod.Post))
+                                        {
+                                            @Html.Hidden("movieName", @movie.MovieName)
+                                            <input type="submit" value="Buy" />
+                                        }
                                     </td>
                                 }
                             </tr>

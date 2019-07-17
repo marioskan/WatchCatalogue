@@ -26,8 +26,12 @@
                     {
                         <li>@Html.ActionLink("Add", "Index", "AddSomething")</li>
                         <li>@Html.ActionLink("Restock", "Restock", "AddSomething")</li>
-
-                    }                   
+                        
+                    }               
+                    @if (Roles.IsUserInRole("User"))
+                    {
+                         <li>@Html.ActionLink("MyRents", "MyRents", "Profile")</li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

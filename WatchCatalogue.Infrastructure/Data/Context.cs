@@ -39,7 +39,11 @@ namespace WatchCatalogue.Infrastructure.Data
                     .HasForeignKey(m => m.ChannelID)
                     .WillCascadeOnDelete(true);
 
-                
+                modelBuilder.Entity<RentInfo>()
+                    .HasMany(r => r.Movies)
+                    .WithRequired(m => m.RentInfo)
+                    .HasForeignKey(m => m.RentID)
+                    .WillCascadeOnDelete(true);
             }
         }
     

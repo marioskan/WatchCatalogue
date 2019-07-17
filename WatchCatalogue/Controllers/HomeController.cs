@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -27,9 +28,11 @@ namespace WatchCatalogue.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> UserRent (DisplayAllViewModel _displayvm)
+        public ActionResult UserRent (string movieName)
         {
-            
+            string userId = User.Identity.GetUserId();
+            IUserRentService iurs = new UserRentService();
+            iurs.SaveRent(movieName,userId);
             return RedirectToAction("Index");
         }
     }

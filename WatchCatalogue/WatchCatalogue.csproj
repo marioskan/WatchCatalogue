@@ -193,6 +193,7 @@
     <Compile Include="Controllers\AddSomethingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -273,6 +274,7 @@
     <Content Include="Views\AddSomething\AddChannel.cshtml" />
     <Content Include="Views\AddSomething\AddMovie.cshtml" />
     <Content Include="Views\AddSomething\Restock.cshtml" />
+    <Content Include="Views\Profile\MyRents.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

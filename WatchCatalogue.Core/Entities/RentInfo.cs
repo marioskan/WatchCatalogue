@@ -9,8 +9,8 @@ namespace WatchCatalogue.Core.Entities
     public class RentInfo
     {
         public int ID { get; set; }
-        public int UserID { get; set; }
-        public int MovieID { get; set; }
+        public string UserID { get; set; }
+        public List<Movie> Movies { get; set; }
         public DateTime RentDate { get; set; }
     }
 }
