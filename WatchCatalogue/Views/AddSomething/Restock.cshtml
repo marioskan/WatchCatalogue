@@ -9,7 +9,7 @@
         <table>
             <tr>
                 <td>
-                    <br />
+                    Movie Name (Available/Total) :
                 </td>
             </tr>
             <tr>
@@ -17,7 +17,7 @@
                     <select name="select">
                         @foreach (var movie in Model)
                         {
-                            <option value="@movie.ID">@movie.Name (@movie.Amount)</option>
+                            <option value="@movie.ID">@movie.Name (@movie.AvailableAmount/@movie.Amount)</option>
                         }
                     </select>
                 </td>
@@ -29,7 +29,12 @@
             </tr>
             <tr>
                 <td>
-                    <input type="number" name="amount"/>
+                    <input type="number" name="newamount"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Update"/>
                 </td>
             </tr>
         </table>

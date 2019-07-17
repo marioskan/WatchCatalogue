@@ -22,6 +22,8 @@ namespace WatchCatalogue.Infrastructure.Data
             public DbSet<SubscriptionService> SubscriptionServices { get; set; }
             public DbSet<Channel> Channels { get; set; }
             public DbSet<Movie> Movies { get; set; }
+            public DbSet<RentInfo> Rent { get; set; } 
+            
 
             protected override void OnModelCreating(DbModelBuilder modelBuilder)
             {

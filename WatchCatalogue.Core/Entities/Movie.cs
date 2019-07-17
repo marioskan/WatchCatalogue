@@ -13,9 +13,9 @@ namespace WatchCatalogue.Core.Entities
         public int ChannelID { get; set; }
         public Channel Channel { get; set; }
         public int Amount { get; set; }
+        public int AvailableAmount { get; set; }
         public string Name { get; set; }
         public string ImgGuid { get; set; }
-        public Genre Genre { get; set; }
-        
+        public Genre Genre { get; set; }       
     }
 }

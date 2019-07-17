@@ -2,68 +2,73 @@
 
 <h1>View All</h1>
 
-<div style="overflow-x:auto;">
-    <table id="data">
-        <tr>
-            <th>Service</th>
-            <th>Channels</th>
-            <th>Movies</th>
-            <th>Amount</th>
-            @if (Roles.IsUserInRole("Admin") || Roles.IsUserInRole("User"))
-            {
-                <th>Action</th>
-            }
-        </tr>
-        @foreach (var service in Model.Services)
-        {
-            foreach (var channel in service.Channels)
-            {
-                foreach (var movie in channel.Movies)
+@using (Html.BeginForm("UserRent", "AddSomething", FormMethod.Post))
+{
+        <div style="overflow-x:auto;">
+            <table id="data">
+                <tr>
+                    <th>Service</th>
+                    <th>Channels</th>
+                    <th>Movies</th>
+                    <th>Available Copies</th>
+                    @if (Roles.IsUserInRole("Admin") || Roles.IsUserInRole("User"))
                 {
-                    <tr>
-
-                        <td>@service.ServiceName</td>
-                        <td>@channel.ChannelName</td>
-                        <td>@movie.MovieName</td>
-                        <td>@movie.Amount</td>
-                        @if (Roles.IsUserInRole("Admin") || Roles.IsUserInRole("User"))
+                        <th>Action</th>
+                    }
+                </tr>
+                @foreach (var service in Model.Services)
+                {
+                    foreach (var channel in service.Channels)
+                    {
+                        foreach (var movie in channel.Movies)
                         {
-                            <td><input type="button" value="Buy" /></td>
+                            <tr>
+
+                                <td>@service.ServiceName</td>
+                                <td>@channel.ChannelName</td>
+                                <td>@movie.MovieName</td>
+                                <td>@movie.AvailableAmount</td>
+                                @if (Roles.IsUserInRole("Admin") || Roles.IsUserInRole("User"))
+                            {
+                                    <td>
+                                <input type="submit" value="Buy" />
+                                    </td>
+                                }
+                            </tr>
+
                         }
-                    </tr>
-
+                    }
                 }
-            }
-        }
-    </table>
-    </div>
-    <style>
-        #data {
-            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-            border-collapse: collapse;
-            font-size: 12px;
-        }
+            </table>
+        </div>
+}
+<style>
+    #data {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        font-size: 12px;
+    }
 
-        table {
-            width: 100%;
-        }
+    table {
+        width: 100%;
+    }
 
-        #data td, #data th {
-            border: 1px solid #ddd;
-            padding: 8px;
-            border: 1px solid #000;
-        }
+    #data td, #data th {
+        border: 1px solid #ddd;
+        padding: 8px;
+        border: 1px solid #000;
+    }
 
-        #data tr{
-            width:1%;
-            white-space:nowrap;
-        }
+    #data tr {
+        width: 1%;
+        white-space: nowrap;
+    }
 
-        #data th {
-            padding-top: 12px;
-            padding-bottom: 12px;
-            text-align: left;
-            background-color: #4CAF50;
-            color: white;
-        }
-    </style>
+    #data th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4CAF50;
+        color: white;
+    }
+</style>

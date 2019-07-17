@@ -53,12 +53,14 @@
   <ItemGroup>
     <Compile Include="Entities\Channel.cs" />
     <Compile Include="Entities\Movie.cs" />
+    <Compile Include="Entities\RentInfo.cs" />
     <Compile Include="Entities\SubscriptionService.cs" />
     <Compile Include="Enumerations\Genre.cs" />
     <Compile Include="Interfaces\IChannelService.cs" />
     <Compile Include="Interfaces\IDisplayService.cs" />
     <Compile Include="Interfaces\IMovieService.cs" />
     <Compile Include="Interfaces\ISubscriptionServiceService.cs" />
+    <Compile Include="Interfaces\IUserRentService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\DisplayViewModel.cs" />
     <Compile Include="ViewModels\Viewmodel.cs" />

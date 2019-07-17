@@ -8,6 +8,7 @@ using WatchCatalogue.Core.Entities;
 using WatchCatalogue.Core.Interfaces;
 using WatchCatalogue.Infrastructure.Data;
 using WatchCatalogue.ViewModels;
+using AutoMapper;
 
 namespace WatchCatalogue.Infrastructure.Services
 {
@@ -15,10 +16,11 @@ namespace WatchCatalogue.Infrastructure.Services
     {
         Context db = new Context();
 
-        public async Task RestockMoviesAsync(Movie movie,int amount,int id)
+        public async Task RestockMoviesAsync(int movieid, int newamount)
         {
-            var Movie = await db.Movies.Where(m => m.ID == id).SingleOrDefaultAsync();
-            Movie.Amount = Movie.Amount + amount;
+            var Movie = await db.Movies.Where(m => m.ID == movieid).FirstOrDefaultAsync();
+            Movie.Amount = Movie.Amount + newamount;
+            Movie.AvailableAmount = Movie.AvailableAmount + newamount;
             await db.SaveChangesAsync();
         }
 
@@ -33,10 +35,7 @@ namespace WatchCatalogue.Infrastructure.Services
             try
             {
                 Movie movie = new Movie();
-                movie.Name = allvm.MovieName;
-                movie.Amount = allvm.Amount;
-                movie.Genre = allvm.Genres;
-                movie.ChannelID = allvm.ChannelID;
+                AutoMapper.Mapper.Map(allvm, movie);
                 db.Movies.Add(movie);
                 db.SaveChanges();
             }

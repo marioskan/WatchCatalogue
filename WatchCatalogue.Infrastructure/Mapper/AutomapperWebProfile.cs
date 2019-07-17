@@ -25,6 +25,9 @@ namespace WatchCatalogue.Infrastructure.Mapper
                 .ForMember(channelvm => channelvm.Movies, channel => channel.MapFrom(src => src.Movies));
             CreateMap<Movie, MovieViewModel>()
                 .ForMember(movievm => movievm.MovieName, movie => movie.MapFrom(src => src.Name));
+            CreateMap<AllViewModel, Movie>()
+                .ForMember(movie => movie.Genre, allvm => allvm.MapFrom(src => src.Genres))
+                .ForMember(movie => movie.Name, allvm => allvm.MapFrom(src => src.MovieName));
         }
 
         public static void Run()

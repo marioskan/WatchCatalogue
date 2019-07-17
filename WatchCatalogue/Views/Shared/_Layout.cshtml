@@ -25,7 +25,7 @@
                     @if (Roles.IsUserInRole("Admin"))
                     {
                         <li>@Html.ActionLink("Add", "Index", "AddSomething")</li>
-                        <li>@Html.ActionLink("Restock", "Index", "AddSomething")</li>
+                        <li>@Html.ActionLink("Restock", "Restock", "AddSomething")</li>
 
                     }                   
                 </ul>

@@ -62,6 +62,7 @@ namespace WatchCatalogue.Controllers
         public ActionResult AddMoviePost(AllViewModel allvm)
         {
             IMovieService ims = new MovieService();
+            allvm.AvailableAmount = allvm.Amount;
             allvm.ChannelID = Int32.Parse(Request.Form.Get("select"));
             ims.SaveMovieService(allvm);
             return RedirectToAction("Index");
@@ -75,10 +76,14 @@ namespace WatchCatalogue.Controllers
             return View(list);
         }
 
-        //[HttpPost]
-        //public async Task<ActionResult> RestockPost(Movie movie)
-        //{
-
-        //}
+        [HttpPost]
+        public async Task<ActionResult> RestockPost()
+        {
+            int movieid = Int32.Parse(Request.Form.Get("select"));
+            int newamount = Int32.Parse(Request.Form.Get("newamount"));
+            IMovieService ims = new MovieService();
+            await ims.RestockMoviesAsync(movieid,newamount);
+            return RedirectToAction("Index");
+        }
     }
 }

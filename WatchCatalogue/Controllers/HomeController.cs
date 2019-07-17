@@ -25,5 +25,12 @@ namespace WatchCatalogue.Controllers
 
             return View(displayvm);
         }
+
+        [HttpPost]
+        public async Task<ActionResult> UserRent (DisplayAllViewModel _displayvm)
+        {
+            
+            return RedirectToAction("Index");
+        }
     }
 }

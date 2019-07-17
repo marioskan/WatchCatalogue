@@ -11,7 +11,7 @@ namespace WatchCatalogue.Core.Interfaces
     public interface IMovieService
     {
         void SaveMovieService(AllViewModel allvm);
-        Task RestockMoviesAsync(Movie movie, int amount,int id);
+        Task RestockMoviesAsync(int id, int newamount);
         Task<List<Movie>> ReturnMovieListAsync();
     }
 }

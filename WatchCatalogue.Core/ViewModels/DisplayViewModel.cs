@@ -66,6 +66,7 @@ namespace WatchCatalogue.Core.ViewModels
     {
         public string MovieName { get; set; }
         public int Amount { get; set; }
+        public int AvailableAmount { get; set; }
         public MovieViewModel()
         {
             //this.MovieName = MovieName;
