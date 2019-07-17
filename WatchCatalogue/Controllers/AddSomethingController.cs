@@ -66,5 +66,19 @@ namespace WatchCatalogue.Controllers
             ims.SaveMovieService(allvm);
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public async Task<ActionResult> Restock()
+        {
+            IMovieService ims = new MovieService();
+            var list = await ims.ReturnMovieListAsync();
+            return View(list);
+        }
+
+        //[HttpPost]
+        //public async Task<ActionResult> RestockPost(Movie movie)
+        //{
+
+        //}
     }
 }

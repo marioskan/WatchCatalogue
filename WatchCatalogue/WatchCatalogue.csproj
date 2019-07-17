@@ -272,6 +272,7 @@
     <Content Include="Views\AddSomething\Index.cshtml" />
     <Content Include="Views\AddSomething\AddChannel.cshtml" />
     <Content Include="Views\AddSomething\AddMovie.cshtml" />
+    <Content Include="Views\AddSomething\Restock.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

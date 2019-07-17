@@ -1,0 +1,38 @@
+﻿@model IEnumerable<WatchCatalogue.Core.Entities.Movie>
+@{
+    ViewBag.Title = "Restock";
+}
+
+@using (Html.BeginForm("RestockPost", "AddSomething", FormMethod.Post))
+{
+    <form>
+        <table>
+            <tr>
+                <td>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <select name="select">
+                        @foreach (var movie in Model)
+                        {
+                            <option value="@movie.ID">@movie.Name (@movie.Amount)</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Add amount:
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="number" name="amount"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+}
+
