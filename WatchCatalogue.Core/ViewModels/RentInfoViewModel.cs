@@ -12,5 +12,6 @@ namespace WatchCatalogue.Core.ViewModels
         public DateTime RentDate { get; set; }
         public string ChannelName { get; set; }
         public string SubscriptionName { get; set; }
+        public double Price { get; set; }
     }
 }

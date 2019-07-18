@@ -69,6 +69,14 @@
     <Compile Include="Migrations\201907180751081_movieTomovierent.Designer.cs">
       <DependentUpon>201907180751081_movieTomovierent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907181227295_addedmoretoprofile.cs" />
+    <Compile Include="Migrations\201907181227295_addedmoretoprofile.Designer.cs">
+      <DependentUpon>201907181227295_addedmoretoprofile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907181244542_final.cs" />
+    <Compile Include="Migrations\201907181244542_final.Designer.cs">
+      <DependentUpon>201907181244542_final.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ChannelService.cs" />
@@ -99,6 +107,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907180751081_movieTomovierent.resx">
       <DependentUpon>201907180751081_movieTomovierent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907181227295_addedmoretoprofile.resx">
+      <DependentUpon>201907181227295_addedmoretoprofile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907181244542_final.resx">
+      <DependentUpon>201907181244542_final.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

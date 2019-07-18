@@ -30,6 +30,7 @@ namespace WatchCatalogue.Core.ViewModels
     {
         public List<ChannelViewModel> Channels { get; set; }
         public string ServiceName { get; set; }
+        public float Price { get; set; }
 
         public ServiceViewModel()
         {

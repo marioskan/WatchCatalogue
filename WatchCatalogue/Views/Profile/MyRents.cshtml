@@ -11,6 +11,7 @@
         <th>Channel</th>
         <th>Movie</th>
         <th>Date Rented</th>
+        <th>Price</th>
     </tr>
     @foreach(var vm in Model)
     {
@@ -19,6 +20,7 @@
             <td>@vm.ChannelName</td>
             <td>@vm.MovieName</td>
             <td>@vm.RentDate</td>
+            <td>@vm.Price</td>
         </tr>
     }
 </table>

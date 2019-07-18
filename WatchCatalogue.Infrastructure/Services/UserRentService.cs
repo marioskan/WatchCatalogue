@@ -17,7 +17,7 @@ namespace WatchCatalogue.Infrastructure.Services
 
         public async Task<Movie> FindMovieByName(string movieName)
         {
-            Movie movieobj = await db.Movies.Where(movie => movie.Name == movieName).SingleOrDefaultAsync();
+            Movie movieobj = await db.Movies.Include(movie=>movie.Channel).Include(movie=>movie.Channel.SubscriptionService).Where(movie => movie.Name == movieName).SingleOrDefaultAsync();
             return movieobj;
         }
         public async Task<Boolean> CheckAmount(Movie movie)
@@ -42,7 +42,8 @@ namespace WatchCatalogue.Infrastructure.Services
             {
                 MovieID = movie.ID,
                 UserID = userId,
-                DateRented = DateTime.Now
+                DateRented = DateTime.Now,
+                Price = movie.Channel.SubscriptionService.Price
             };
             db.Rents.Add(rent);
             await db.SaveChangesAsync();

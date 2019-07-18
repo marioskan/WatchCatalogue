@@ -21,7 +21,7 @@ namespace WatchCatalogue.Infrastructure.Services
         }
 
         public async Task<List<RentInfoViewModel>> SearchRentedMovies(string userId)
-        {           
+        {
             return await db.Rents
                 .Include(mr => mr.Movie)
                 .Include(mr => mr.Movie.Channel)
@@ -31,7 +31,8 @@ namespace WatchCatalogue.Infrastructure.Services
                     ChannelName = rs.Movie.Channel.Name,
                     MovieName = rs.Movie.Name,
                     SubscriptionName = rs.Movie.Channel.SubscriptionService.Name,
-                    RentDate = rs.DateRented
+                    RentDate = rs.DateRented,
+                    Price = rs.Price
                 })
                 .ToListAsync();
 

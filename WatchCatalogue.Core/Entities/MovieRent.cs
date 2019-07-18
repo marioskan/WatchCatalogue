@@ -13,5 +13,6 @@ namespace WatchCatalogue.Core.Entities
         public string UserID { get; set; }
         public DateTime DateRented { get; set; }
         public Movie Movie { get; set; }
+        public double Price { get; set; }
     }
 }
