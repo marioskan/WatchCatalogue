@@ -9,7 +9,9 @@ namespace WatchCatalogue.Core.Interfaces
 {
     public interface IUserRentService
     {
-        Task SaveRent(string movieName,string userId);
+        Task SaveRent(Movie movie,string userId);
         Task ReturnMovie(string userId);
+        Task<Boolean> CheckAmount(Movie movie);
+        Task<Movie> FindMovieByName(string movieName);
     }
 }

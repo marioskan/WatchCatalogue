@@ -11,5 +11,6 @@ namespace WatchCatalogue.Core.Interfaces
     public interface IDisplayService
     {
         Task<List<SubscriptionService>> DisplayModels();
+        Task<List<RentInfoViewModel>> SearchRentedMovies(string userId);
     }
 }

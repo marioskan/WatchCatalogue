@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using WatchCatalogue.Core.Interfaces;
@@ -12,12 +13,12 @@ namespace WatchCatalogue.Controllers
     public class ProfileController : Controller
     {
         // GET: Profile
-        public ActionResult MyRents()
+        public async Task<ActionResult> MyRents()
         {
             string userId = User.Identity.GetUserId();
-            IUserRentService iurs = new UserRentService();
-            var rents = iurs.ReturnMovie(userId);
-            return View();
+            IDisplayService ids = new DisplayService();
+            var rentedlist = await ids.SearchRentedMovies(userId);
+            return View(rentedlist);
         }
     }
 }

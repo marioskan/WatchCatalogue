@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using WatchCatalogue.Core.Entities;
 using WatchCatalogue.Core.Interfaces;
 using WatchCatalogue.Core.ViewModels;
 using WatchCatalogue.Infrastructure.Services;
@@ -28,11 +29,21 @@ namespace WatchCatalogue.Controllers
         }
 
         [HttpPost]
-        public ActionResult UserRent (string movieName)
+        public async  Task<ActionResult> UserRent (string movieName)
         {
             string userId = User.Identity.GetUserId();
             IUserRentService iurs = new UserRentService();
-            iurs.SaveRent(movieName,userId);
+            Movie movie = await iurs.FindMovieByName(movieName);
+            bool amount = await iurs.CheckAmount(movie);
+            if(amount)
+            {
+                await iurs.SaveRent(movie,userId);
+                ViewBag.Save = "Success rent";
+            }
+            else
+            {
+                ViewBag.Save = "Failed rent";
+            }
             return RedirectToAction("Index");
         }
     }

@@ -65,13 +65,9 @@
     <Compile Include="Migrations\201907170959307_Add_AvailableAmount.Designer.cs">
       <DependentUpon>201907170959307_Add_AvailableAmount.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201907171154025_AddedRentInfo.cs" />
-    <Compile Include="Migrations\201907171154025_AddedRentInfo.Designer.cs">
-      <DependentUpon>201907171154025_AddedRentInfo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907171343450_changedidtype.cs" />
-    <Compile Include="Migrations\201907171343450_changedidtype.Designer.cs">
-      <DependentUpon>201907171343450_changedidtype.cs</DependentUpon>
+    <Compile Include="Migrations\201907180751081_movieTomovierent.cs" />
+    <Compile Include="Migrations\201907180751081_movieTomovierent.Designer.cs">
+      <DependentUpon>201907180751081_movieTomovierent.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -101,11 +97,8 @@
     <EmbeddedResource Include="Migrations\201907170959307_Add_AvailableAmount.resx">
       <DependentUpon>201907170959307_Add_AvailableAmount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907171154025_AddedRentInfo.resx">
-      <DependentUpon>201907171154025_AddedRentInfo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907171343450_changedidtype.resx">
-      <DependentUpon>201907171343450_changedidtype.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907180751081_movieTomovierent.resx">
+      <DependentUpon>201907180751081_movieTomovierent.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

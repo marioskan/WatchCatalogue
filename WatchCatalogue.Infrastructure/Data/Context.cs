@@ -22,7 +22,7 @@ namespace WatchCatalogue.Infrastructure.Data
             public DbSet<SubscriptionService> SubscriptionServices { get; set; }
             public DbSet<Channel> Channels { get; set; }
             public DbSet<Movie> Movies { get; set; }
-            public DbSet<RentInfo> Rent { get; set; } 
+            public DbSet<MovieRent> Rents { get; set; }
             
 
             protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -39,11 +39,13 @@ namespace WatchCatalogue.Infrastructure.Data
                     .HasForeignKey(m => m.ChannelID)
                     .WillCascadeOnDelete(true);
 
-                modelBuilder.Entity<RentInfo>()
-                    .HasMany(r => r.Movies)
-                    .WithRequired(m => m.RentInfo)
-                    .HasForeignKey(m => m.RentID)
+
+                modelBuilder.Entity<Movie>()
+                    .HasMany(movie => movie.Rents)
+                    .WithRequired(rents => rents.Movie)
+                    .HasForeignKey(rents => rents.MovieID)
                     .WillCascadeOnDelete(true);
+                
             }
         }
     

@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace WatchCatalogue.Core.Entities
 {
-    public class RentInfo
+    public class MovieRent
     {
         public int ID { get; set; }
+        public int MovieID { get; set; }
         public string UserID { get; set; }
-        public List<Movie> Movies { get; set; }
-        public DateTime RentDate { get; set; }
+        public DateTime DateRented { get; set; }
+        public Movie Movie { get; set; }
     }
 }

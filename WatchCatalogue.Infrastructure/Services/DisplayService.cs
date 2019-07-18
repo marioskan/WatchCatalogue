@@ -19,5 +19,22 @@ namespace WatchCatalogue.Infrastructure.Services
             var subServices = await db.SubscriptionServices.Include(ss => ss.Channels.Select(c => c.Movies)).ToListAsync();
             return subServices;          
         }
+
+        public async Task<List<RentInfoViewModel>> SearchRentedMovies(string userId)
+        {           
+            return await db.Rents
+                .Include(mr => mr.Movie)
+                .Include(mr => mr.Movie.Channel)
+                .Include(mr => mr.Movie.Channel.SubscriptionService).
+                Where(rent => rent.UserID == userId)
+                .Select(rs => new RentInfoViewModel() {
+                    ChannelName = rs.Movie.Channel.Name,
+                    MovieName = rs.Movie.Name,
+                    SubscriptionName = rs.Movie.Channel.SubscriptionService.Name,
+                    RentDate = rs.DateRented
+                })
+                .ToListAsync();
+
+        }
     }
 }

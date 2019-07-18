@@ -12,12 +12,12 @@ namespace WatchCatalogue.Core.Entities
         public int ID { get; set; }
         public int ChannelID { get; set; }
         public Channel Channel { get; set; }
-        public RentInfo RentInfo { get; set; }
-        public int RentID { get; set; }
         public int Amount { get; set; }
         public int AvailableAmount { get; set; }
         public string Name { get; set; }
         public string ImgGuid { get; set; }
-        public Genre Genre { get; set; }       
+        public Genre Genre { get; set; }
+
+        public List<MovieRent> Rents { get; set; }
     }
 }

@@ -7,13 +7,13 @@ namespace WatchCatalogue.Infrastructure.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddedRentInfo : IMigrationMetadata
+    public sealed partial class movieTomovierent : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedRentInfo));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(movieTomovierent));
         
         string IMigrationMetadata.Id
         {
-            get { return "201907171154025_AddedRentInfo"; }
+            get { return "201907180751081_movieTomovierent"; }
         }
         
         string IMigrationMetadata.Source

@@ -10,5 +10,7 @@ namespace WatchCatalogue.Core.ViewModels
     {
         public string MovieName { get; set; }
         public DateTime RentDate { get; set; }
+        public string ChannelName { get; set; }
+        public string SubscriptionName { get; set; }
     }
 }
